@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding by Design Unit Planner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+        }
+        h1 {
+            color: #1a202c; /* Darker heading color */
+            font-size: 2.5rem; /* Larger heading */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: -0.025em; /* Slightly tighter letter spacing */
+        }
+        h2 {
+            color: #2d3748; /* Slightly lighter heading */
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #edf2f7; /* Subtle border */
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            color: #4a5568; /* Even lighter heading */
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0; /* Lighter border */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f8fafc; /* Very light background for inputs */
+            transition: all 0.2s ease-in-out;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #6366f1; /* Purple focus border */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Purple focus shadow */
+            background-color: #ffffff;
+        }
+        .button-group {
+            display: flex;
+            gap: 0.75rem; /* Space between buttons */
+            margin-top: 0.75rem;
+            justify-content: flex-end; /* Align buttons to the right */
+        }
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Purple */
+            color: #ffffff;
+            border: 1px solid #6366f1;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Darker purple on hover */
+            transform: translateY(-1px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+        }
+        .btn-secondary {
+            background-color: #e2e8f0; /* Light gray */
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e0; /* Darker gray on hover */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Print specific styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+                max-width: none;
+                width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+            textarea, input[type="text"] {
+                border: none;
+                background-color: transparent;
+                padding: 0;
+                resize: none; /* Prevent resizing handles in print */
+                overflow: hidden; /* Hide scrollbars in print */
+            }
+            /* Ensure text areas expand to show all content */
+            textarea {
+                height: auto !important; /* Override fixed height */
+                min-height: 2em; /* Ensure some height even if empty */
+            }
+            .section-content {
+                margin-bottom: 1rem; /* Add some space between sections */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-gray-900">Understanding by Design Unit Planner</h1>
+
+        <!-- Stage 1: Desired Results -->
+        <section>
+            <h2 class="text-blue-700">Stage 1: Desired Results</h2>
+            <p class="text-gray-600 mb-4">Identify desired results by considering established goals, examining content standards, and reviewing curriculum expectations. Frame the big ideas and core tasks in the form of understandings and essential questions.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Established Goals</h3>
+                <textarea id="establishedGoals" rows="4" placeholder="e.g., Students will be able to..."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('establishedGoals')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Understandings</h3>
+                <textarea id="understandings" rows="6" placeholder="e.g., Students will understand that..."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('understandings')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Essential Questions</h3>
+                <textarea id="essentialQuestions" rows="6" placeholder="e.g., How do we know what is true?"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('essentialQuestions')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Students will know... (Knowledge)</h3>
+                <textarea id="knowledge" rows="4" placeholder="e.g., Key vocabulary, facts, concepts"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('knowledge')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Students will be able to... (Skills)</h3>
+                <textarea id="skills" rows="4" placeholder="e.g., Perform procedures, apply concepts"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('skills')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 2: Evidence -->
+        <section>
+            <h2 class="text-green-700">Stage 2: Evidence</h2>
+            <p class="text-gray-600 mb-4">Determine acceptable evidence to show that desired results have been achieved. Consider a range of assessment methods, including performance tasks and other evidence.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Performance Tasks</h3>
+                <textarea id="performanceTasks" rows="8" placeholder="e.g., Describe the authentic task students will complete."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('performanceTasks')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Other Evidence (Quizzes, Tests, Prompts, Observations, etc.)</h3>
+                <textarea id="otherEvidence" rows="6" placeholder="e.g., Formative assessments, homework, class discussions."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('otherEvidence')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Rubric(s) / Criteria for Success</h3>
+                <textarea id="rubrics" rows="6" placeholder="e.g., How will student performance be evaluated?"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('rubrics')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 3: Learning Plan -->
+        <section>
+            <h2 class="text-red-700">Stage 3: Learning Plan</h2>
+            <p class="text-gray-600 mb-4">Plan learning experiences and instruction that will enable students to achieve the desired results and demonstrate their understanding.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Learning Activities (WHERETO)</h3>
+                <textarea id="learningActivities" rows="10" placeholder="W - Where are we going? Why?
+H - Hook and Hold
+E - Equip, Experience, Explore
+R - Rethink, Revise, Refine
+E - Evaluate
+T - Tailored
+O - Organized"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('learningActivities')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="mt-8 text-center no-print">
+            <button class="btn btn-primary" onclick="printPage()">Print Unit Plan to PDF</button>
+        </div>
+
+        <!-- Message Box for Copy Confirmation -->
+        <div id="messageBox" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                <p id="messageText" class="text-lg font-semibold mb-4"></p>
+                <button class="btn btn-primary" onclick="hideMessageBox()">OK</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to copy text from a textarea/input
+        function copyEntry(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.select();
+                element.setSelectionRange(0, 99999); // For mobile devices
+
+                try {
+                    document.execCommand('copy');
+                    showMessage("Content copied to clipboard!");
+                } catch (err) {
+                    showMessage("Failed to copy content. Please copy manually.");
+                    console.error('Copy failed:', err);
+                }
+            }
+        }
+
+        // Function to print the page
+        function printPage() {
+            window.print();
+        }
+
+        // Function to show a message box
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            messageText.textContent = message;
+            messageBox.classList.remove('hidden');
+        }
+
+        // Function to hide the message box
+        function hideMessageBox() {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.classList.add('hidden');
+        }
+
+        // Alias for showMessageBox for consistency with previous functions
+        function showMessage(message) {
+            showMessageBox(message);
+        }
+
+        // Auto-resize textareas based on content
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', () => {
+                textarea.style.height = 'auto';
+                textarea.style.height = (textarea.scrollHeight) + 'px';
+            });
+            // Initial resize on load
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        });
+    </script>
+</body>
+</html>
