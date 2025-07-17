@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>UbDTemplate</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding by Design Unit Planner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-gray-900">Understanding by Design Unit Planner</h1>
+
+        <!-- Stage 1: Desired Results -->
+        <section>
+            <h2 class="text-blue-700">Stage 1: Desired Results</h2>
+            <p class="text-gray-600 mb-4">Identify desired results by considering established goals, examining content standards, and reviewing curriculum expectations. Frame the big ideas and core tasks in the form of understandings and essential questions.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Established Goals</h3>
+                <textarea id="establishedGoals" rows="4" placeholder="e.g., Students will be able to..."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('establishedGoals')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Understandings</h3>
+                <textarea id="understandings" rows="6" placeholder="e.g., Students will understand that..."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('understandings')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Essential Questions</h3>
+                <textarea id="essentialQuestions" rows="6" placeholder="e.g., How do we know what is true?"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('essentialQuestions')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Students will know... (Knowledge)</h3>
+                <textarea id="knowledge" rows="4" placeholder="e.g., Key vocabulary, facts, concepts"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('knowledge')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Students will be able to... (Skills)</h3>
+                <textarea id="skills" rows="4" placeholder="e.g., Perform procedures, apply concepts"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('skills')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 2: Evidence -->
+        <section>
+            <h2 class="text-green-700">Stage 2: Evidence</h2>
+            <p class="text-gray-600 mb-4">Determine acceptable evidence to show that desired results have been achieved. Consider a range of assessment methods, including performance tasks and other evidence.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Performance Tasks</h3>
+                <textarea id="performanceTasks" rows="8" placeholder="e.g., Describe the authentic task students will complete."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('performanceTasks')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Other Evidence (Quizzes, Tests, Prompts, Observations, etc.)</h3>
+                <textarea id="otherEvidence" rows="6" placeholder="e.g., Formative assessments, homework, class discussions."></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('otherEvidence')">Copy</button>
+                </div>
+            </div>
+
+            <div class="mb-6 section-content">
+                <h3>Rubric(s) / Criteria for Success</h3>
+                <textarea id="rubrics" rows="6" placeholder="e.g., How will student performance be evaluated?"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('rubrics')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 3: Learning Plan -->
+        <section>
+            <h2 class="text-red-700">Stage 3: Learning Plan</h2>
+            <p class="text-gray-600 mb-4">Plan learning experiences and instruction that will enable students to achieve the desired results and demonstrate their understanding.</p>
+
+            <div class="mb-6 section-content">
+                <h3>Learning Activities (WHERETO)</h3>
+                <textarea id="learningActivities" rows="10" placeholder="W - Where are we going? Why?
+H - Hook and Hold
+E - Equip, Experience, Explore
+R - Rethink, Revise, Refine
+E - Evaluate
+T - Tailored
+O - Organized"></textarea>
+                <div class="button-group no-print">
+                    <button class="btn btn-secondary" onclick="copyEntry('learningActivities')">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="mt-8 text-center no-print">
+            <button class="btn btn-primary" onclick="printPage()">Print Unit Plan to PDF</button>
+        </div>
+
+        <!-- Message Box for Copy Confirmation -->
+        <div id="messageBox" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                <p id="messageText" class="text-lg font-semibold mb-4"></p>
+                <button class="btn btn-primary" onclick="hideMessageBox()">OK</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

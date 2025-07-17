@@ -1,0 +1,124 @@
+/* style.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* Light gray background */
+    color: #333;
+}
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+}
+h1 {
+    color: #1a202c; /* Darker heading color */
+    font-size: 2.5rem; /* Larger heading */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -0.025em; /* Slightly tighter letter spacing */
+}
+h2 {
+    color: #2d3748; /* Slightly lighter heading */
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #edf2f7; /* Subtle border */
+    padding-bottom: 0.5rem;
+}
+h3 {
+    color: #4a5568; /* Even lighter heading */
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e0; /* Lighter border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f8fafc; /* Very light background for inputs */
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #6366f1; /* Purple focus border */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Purple focus shadow */
+    background-color: #ffffff;
+}
+.button-group {
+    display: flex;
+    gap: 0.75rem; /* Space between buttons */
+    margin-top: 0.75rem;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.btn-primary {
+    background-color: #6366f1; /* Purple */
+    color: #ffffff;
+    border: 1px solid #6366f1;
+}
+.btn-primary:hover {
+    background-color: #4f46e5; /* Darker purple on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+}
+.btn-secondary {
+    background-color: #e2e8f0; /* Light gray */
+    color: #4a5568;
+    border: 1px solid #cbd5e0;
+}
+.btn-secondary:hover {
+    background-color: #cbd5e0; /* Darker gray on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Print specific styles */
+@media print {
+    body {
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 1rem;
+        max-width: none;
+        width: 100%;
+    }
+    .no-print {
+        display: none !important;
+    }
+    textarea, input[type="text"] {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        resize: none; /* Prevent resizing handles in print */
+        overflow: hidden; /* Hide scrollbars in print */
+    }
+    /* Ensure text areas expand to show all content */
+    textarea {
+        height: auto !important; /* Override fixed height */
+        min-height: 2em; /* Ensure some height even if empty */
+    }
+    .section-content {
+        margin-bottom: 1rem; /* Add some space between sections */
+    }
+}
